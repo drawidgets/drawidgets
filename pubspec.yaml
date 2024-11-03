@@ -1,11 +1,13 @@
 name: drawidgets
-description: "A new Flutter package project."
-version: 0.0.1
+description: >-
+  Utilities that enhance Flutter development 
+  powered by the Drawidgets ecosystem.
+version: 0.0.0
 homepage:
 
 environment:
   sdk: ^3.5.4
-  flutter: ">=1.17.0"
+  flutter: ^3.24.4
 
 dependencies:
   flutter:
@@ -14,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

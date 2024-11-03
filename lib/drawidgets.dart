@@ -1,4 +1,4 @@
-library drawidgets;
+library;
 
 /// A Calculator.
 class Calculator {

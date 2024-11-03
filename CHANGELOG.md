@@ -1,3 +1,7 @@
+## 0.0.1
+
+- `flutter`: fix bug of `.pubignore` the `lib/src` folder.
+
 ## 0.0.0
 
 - Flutter, Rust and Node PNPM monorepo packages manifest.

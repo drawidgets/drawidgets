@@ -2,6 +2,11 @@
 
 Auto generate code from your graphical designs.
 
+Current package is still working in progress,
+please wait till a stable release after `1.0.0`.
+
+## Roadmap
+
 1. Flutter: utilities for widgets, window management, and preview tool.
 2. Rust: utilities for server, database, and search.
 3. Rust: multi-language code analyzer, especially for web preview support.

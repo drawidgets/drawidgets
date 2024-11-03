@@ -1,3 +1,7 @@
 ## 0.0.0
 
-- Initialize Flutter package.
+- Flutter, Rust and Node PNPM monorepo packages manifest.
+- Format on save options for VSCode and Prettier PNPM scripts.
+- Dart CI script to auto generate `.pubignore` from `.gitignore`.
+- `flutter`: ensure text display environment.
+- `license`: use the MIT License.

@@ -4,10 +4,11 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": "^20.18.0",
+    "node": "^23.1.0",
     "vscode": "^1.95.0"
   },
   "scripts": {
+    "dev": "node --experimental-transform-types --watch dev.ts",
     "build": "node --experimental-transform-types build.ts"
   },
   "devDependencies": {

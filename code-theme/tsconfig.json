@@ -5,7 +5,13 @@
     "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    // Path aliases.
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["build.ts", "src/**/*.ts"]
+  "include": ["build.ts", "dev.ts", "src/**/*.ts", "themes/**/*.ts"]
 }

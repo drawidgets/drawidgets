@@ -76,7 +76,7 @@ void pubIgnore({
 }
 
 const rustIgnores = [
-  'src/',
+  '/src/',
   'Cargo.lock',
   'Cargo.toml',
   'rustfmt.toml',

@@ -1,29 +1,25 @@
-# Miscellaneous
+# Miscellaneous compiler process files.
+.buildlog/
+.history
 *.class
 *.log
 *.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
 
-# IntelliJ related
+# Code editor and platform local preferences:
+# 1. Desktop service store files of macOS.
+# 2. Android Studio (IntelliJ IDE Series) local preferences.
+# 3. Vim swp files might caused by Git command-line options.
+.DS_Store
+.idea/
 *.iml
 *.ipr
 *.iws
-.idea/
+*.swp
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-# Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
-/pubspec.lock
+# Flutter auto managed files:
+# Libraries should not include pubspec.lock,
+# per https://dart.dev/guides/libraries/private-files#pubspeclock.
 **/doc/api/
 .dart_tool/
 build/
+pubspec.lock

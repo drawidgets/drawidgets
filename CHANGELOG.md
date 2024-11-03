@@ -1,3 +1,7 @@
+## 0.0.2
+
+- `flutter`: shared linter options (`package:drawidgets/lints.yaml`).
+
 ## 0.0.1
 
 - `flutter`: fix bug of `.pubignore` the `lib/src` folder.

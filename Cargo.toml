@@ -1,0 +1,7 @@
+[package]
+name = "drawidgets"
+description = "Drawidgets backend and command-line infrastructures."
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

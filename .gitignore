@@ -23,3 +23,6 @@
 .dart_tool/
 build/
 pubspec.lock
+
+# Cargo auto managed files.
+/target

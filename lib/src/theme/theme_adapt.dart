@@ -1,3 +1,4 @@
+import 'package:drawidgets/src/animation.dart';
 import 'package:drawidgets/src/theme/theme_base.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -54,4 +55,30 @@ class _ThemeAdaptState<T extends ThemeDataBase> extends State<ThemeAdapt<T>>
     final theme = shouldDark ? widget.dark : widget.light;
     return widget.builder(context, theme);
   }
+}
+
+ThemeAdapt<T> animatedThemeAdapt<T extends ThemeDataBase>({
+  Key? key,
+  Duration duration = const Duration(milliseconds: 325),
+  Curve curve = Curves.easeInOut,
+  ThemeMode mode = ThemeMode.system,
+  required T Function(T, T, double) lerp,
+  required T dark,
+  required T light,
+  required Widget Function(BuildContext, T) builder,
+}) {
+  return ThemeAdapt<T>(
+    key: key,
+    dark: dark,
+    light: light,
+    builder: (context, theme) {
+      return AnimateData<T>(
+        duration: duration,
+        curve: curve,
+        lerp: lerp,
+        data: theme,
+        builder: builder,
+      );
+    },
+  );
 }

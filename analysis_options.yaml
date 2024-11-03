@@ -15,3 +15,4 @@ linter:
     prefer_single_quotes: true
     require_trailing_commas: true
     unnecessary_library_directive: true
+    unreachable_from_main: true

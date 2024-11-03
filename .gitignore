@@ -31,3 +31,6 @@ pubspec.lock
 node_modules/
 dist/
 *.vsix
+
+# CI scripts auto managed files.
+.pubignore

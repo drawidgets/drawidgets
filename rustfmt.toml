@@ -1,0 +1,4 @@
+max_width = 80
+brace_style = "PreferSameLine"
+type_punctuation_density = "Compressed"
+match_block_trailing_comma = true

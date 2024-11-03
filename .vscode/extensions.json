@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    // Language support for development frameworks.
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    "rust-lang.rust-analyzer",
+
+    // Language support for config files.
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml",
+
+    // Format on save extension.
+    "esbenp.prettier-vscode"
+  ]
+}

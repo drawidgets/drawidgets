@@ -1,0 +1,3 @@
+# Lockfiles not managed by programmer.
+pnpm-lock.yaml
+Cargo.lock

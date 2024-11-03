@@ -26,3 +26,6 @@ pubspec.lock
 
 # Cargo auto managed files.
 /target
+
+# Node dependencies.
+node_modules/

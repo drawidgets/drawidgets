@@ -1,0 +1,16 @@
+{
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+
+  // Format on save, extensions required, see .vscode/extensions.json
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {"source.organizeImports": "always"},
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[dart]": {"editor.defaultFormatter": "Dart-Code.dart-code"},
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4
+  }
+}

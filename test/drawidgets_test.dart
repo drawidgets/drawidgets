@@ -1,12 +1,17 @@
+import 'package:drawidgets/drawidgets.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:drawidgets/drawidgets.dart';
-
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  testWidgets('ensure text environment', (t) async {
+    const message = 'message';
+    await t.pumpWidget(
+      const EnsureTextEnvironment(
+        child: Center(
+          child: Text(message),
+        ),
+      ),
+    );
+    expect(find.text(message), findsOneWidget);
   });
 }

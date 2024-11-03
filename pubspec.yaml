@@ -3,7 +3,7 @@ description: >-
   Utilities that enhance Flutter development 
   powered by the Drawidgets ecosystem.
 version: 0.0.0
-homepage:
+repository: https://github.com/drawidgets/drawidgets
 
 environment:
   sdk: ^3.5.4

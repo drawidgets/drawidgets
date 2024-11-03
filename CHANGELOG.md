@@ -1,5 +1,7 @@
 ## 0.0.2
 
+- `flutter`: template of themes and platform brightness adapt.
+- `flutter`: inherit and animation code reuse and optimization.
 - `flutter`: shared linter options (`package:drawidgets/lints.yaml`).
 
 ## 0.0.1

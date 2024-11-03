@@ -12,6 +12,7 @@ analyzer:
 linter:
   rules:
     prefer_const_constructors: true
+    prefer_const_declarations: true
     prefer_single_quotes: true
     require_trailing_commas: true
     unnecessary_library_directive: true

@@ -1,45 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-/// Foreground decoration of both text and icon color:
-/// wrap the [child] with [DefaultTextStyle] and [IconTheme] of [color].
-///
-/// This "Solid" widget has solid structure that its widget-tree structure
-/// won't change when data change especially during an animation process.
-/// It can avoid unnecessary widget-tree structure modify
-/// when the data is updated rapidly,
-/// which is better than the [Foreground] in such condition.
-/// But if you are working with an almost-static situation,
-/// you may consider using [Foreground] instead
-/// for a potential simpler widget-tree structure.
-class ForegroundSolid extends Foreground {
-  const ForegroundSolid({
-    super.key,
-    required super.color,
-    required super.child,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: DefaultTextStyle.of(context).style.copyWith(color: color),
-      child: IconTheme(
-        data: IconTheme.of(context).copyWith(color: color),
-        child: child,
-      ),
-    );
-  }
-}
-
-/// Foreground decoration of both text and icon color:
-/// wrap the [child] with [DefaultTextStyle] and [IconTheme] of [color].
-///
-/// This widget contains optimization which will reduce unnecessary widgets
-/// as possible. But once the color is same as its ancestor,
-/// the widget-tree structure will be modified,
-/// which might cause much more performance costs.
-/// The optimization strategy which will detect whether the widget can omit
-/// will also cost a lot that when dealing with animations,
-/// it's more recommended to use [ForegroundSolid] instead.
+/// Foreground decoration of both text and icon color.
 class Foreground extends StatelessWidget {
   const Foreground({
     super.key,
@@ -52,28 +13,10 @@ class Foreground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget textForeground({required Color color, required Widget child}) {
-      final style = DefaultTextStyle.of(context).style;
-      if (style.color == color) return child;
-      return DefaultTextStyle(
-        style: style.copyWith(color: color),
-        child: child,
-      );
-    }
-
-    Widget iconForeground({required Color color, required Widget child}) {
-      final theme = IconTheme.of(context);
-      if (theme.color == color) return child;
-      return IconTheme(
-        data: theme.copyWith(color: color),
-        child: child,
-      );
-    }
-
-    return textForeground(
-      color: color,
-      child: iconForeground(
-        color: color,
+    return DefaultTextStyle(
+      style: DefaultTextStyle.of(context).style.copyWith(color: color),
+      child: IconTheme(
+        data: IconTheme.of(context).copyWith(color: color),
         child: child,
       ),
     );

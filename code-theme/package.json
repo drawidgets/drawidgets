@@ -1,0 +1,13 @@
+{
+  "name": "vscode-drawidgets-theme",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node --experimental-transform-types build.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.7",
+    "@vscode/vsce": "^3.2.1"
+  }
+}

@@ -24,8 +24,10 @@
 build/
 pubspec.lock
 
-# Cargo auto managed files.
+# Cargo compilation workspace.
 /target
 
-# Node dependencies.
+# Node dependencies, compilation workspace and output files.
 node_modules/
+dist/
+*.vsix

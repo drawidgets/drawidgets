@@ -5,7 +5,7 @@ import 'package:path/path.dart';
 void main(List<String> arguments) async {
   switch (arguments.firstOrNull) {
     case 'publish':
-      pubIgnore(increase: [...rustIgnores, ...nodeIgnores]);
+      pubIgnore(increase: [...rustIgnores, ...nodeIgnores, ...monorepoIgnores]);
       final args = ['pub', 'publish', ...arguments.sublist(1)];
       final code = await command('flutter', args);
       if (code != 0) exit(code);
@@ -85,6 +85,11 @@ const rustIgnores = [
 const nodeIgnores = [
   'node_modules/',
   'package.json',
-  'pnpm-lock.lock',
+  'pnpm-lock.yaml',
   'pnpm-workspace.yaml',
+];
+
+const monorepoIgnores = [
+  'code-theme/',
+  'ci.dart',
 ];

@@ -1,4 +1,4 @@
-## Rust-0.0.0
+## Rust-0.1.0
 
 - Initial release as placeholder on [crates.io](https://crates.io).
 - Prepare for compilation as C-ABI dynamic library.

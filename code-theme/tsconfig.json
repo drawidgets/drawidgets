@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "skipLibCheck": true,
-
-    // Path aliases.
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "skipLibCheck": true
   },
   "include": ["build.ts", "dev.ts", "src/**/*.ts", "themes/**/*.ts"]
 }

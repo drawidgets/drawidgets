@@ -1,6 +1,8 @@
 ## 0.0.3
 
-- `flutter`: theme adapt with animation.
+- `flutter`: theme adapt template with animation.
+- `flutter`: optimize lerp and tween over flutter raw implementations.
+- `flutter`: apply functional programming in theme and inherit.
 
 ## 0.0.2
 

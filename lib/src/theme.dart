@@ -66,6 +66,25 @@ class AreaTheme extends StatelessWidget {
   }
 }
 
+class AreaThemeSolid extends AreaTheme {
+  const AreaThemeSolid({
+    super.key,
+    required super.theme,
+    required super.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: theme.background,
+      child: ForegroundSolid(
+        color: theme.foreground,
+        child: child,
+      ),
+    );
+  }
+}
+
 class ThemeDataBase extends AreaThemeData {
   const ThemeDataBase.light({
     this.brightness = Brightness.light,
@@ -96,7 +115,7 @@ class ThemeBase<T extends ThemeDataBase> extends StatelessWidget {
   Widget build(BuildContext context) {
     return InheritData(
       data: theme,
-      child: AreaTheme(
+      child: AreaThemeSolid(
         theme: theme,
         child: child,
       ),

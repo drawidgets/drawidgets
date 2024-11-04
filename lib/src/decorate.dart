@@ -1,6 +1,26 @@
 import 'package:flutter/widgets.dart';
 
 /// Foreground decoration of both text and icon color.
+class ForegroundSolid extends Foreground {
+  const ForegroundSolid({
+    super.key,
+    required super.color,
+    required super.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: DefaultTextStyle.of(context).style.copyWith(color: color),
+      child: IconTheme(
+        data: IconTheme.of(context).copyWith(color: color),
+        child: child,
+      ),
+    );
+  }
+}
+
+/// Foreground decoration of both text and icon color.
 class Foreground extends StatelessWidget {
   const Foreground({
     super.key,
@@ -13,10 +33,26 @@ class Foreground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: DefaultTextStyle.of(context).style.copyWith(color: color),
-      child: IconTheme(
-        data: IconTheme.of(context).copyWith(color: color),
+    Widget textForeground({required Widget child}) {
+      final style = DefaultTextStyle.of(context).style;
+      if (style.color == color) return child;
+      return DefaultTextStyle(
+        style: style.copyWith(color: color),
+        child: child,
+      );
+    }
+
+    Widget iconForeground({required Widget child}) {
+      final theme = IconTheme.of(context);
+      if (theme.color == color) return child;
+      return IconTheme(
+        data: theme.copyWith(color: color),
+        child: child,
+      );
+    }
+
+    return textForeground(
+      child: iconForeground(
         child: child,
       ),
     );

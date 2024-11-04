@@ -1,3 +1,7 @@
+## 0.0.3
+
+- `flutter`: theme adapt with animation.
+
 ## 0.0.2
 
 - `flutter`: template of themes and platform brightness adapt.

@@ -1,9 +1,26 @@
+/// Custom theme templates: create your own theme without limitation of
+/// the templates from the `material` or `cupertino` library.
+///
+/// You can `extends` the [ThemeDataBase] class to create your own theme data,
+/// and create a `Theme` class that extends the [ThemeBase] class to apply it.
+/// The [ThemeAdapt] widget will help you to adapt platform system theme mode,
+/// and you can also use the [animatedThemeAdapt] function to
+/// specify the animation of theme change.
+///
+/// This library provides a full toolchain that you don't need to rely on
+/// the `material` or `cupertino` library anymore.
+/// For example, this library provides a [ThemeMode] enum itself
+/// to avoid unnecessary import of the `material` or `cupertino` library.
+library;
+
 import 'package:drawidgets/src/animation.dart';
 import 'package:drawidgets/src/decorate.dart';
 import 'package:drawidgets/src/inherit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
+/// Theme data of an area with only [foreground] and [background] colors.
+/// It also provides a [lerp] static method for animation.
 class AreaThemeData {
   const AreaThemeData({
     required this.foreground,
@@ -26,6 +43,7 @@ class AreaThemeData {
   }
 }
 
+/// Apply the foreground and background according to the [theme].
 class AreaTheme extends StatelessWidget {
   const AreaTheme({
     super.key,

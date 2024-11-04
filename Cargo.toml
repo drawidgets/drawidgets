@@ -5,6 +5,24 @@ version = "0.1.0"
 edition = "2021"
 repository = "https://github.com/drawidgets/drawidgets"
 license = "MIT"
+exclude = [
+  ".vscode",
+  "code-theme",
+  "lib",
+  "test",
+  ".gitattributes",
+  ".gitignore",
+  ".metadata",
+  ".prettierrc.yaml",
+  ".prettierignore",
+  "analysis_options.yaml",
+  "ci.dart",
+  "package.json",
+  "pnpm-lock.yaml",
+  "pnpm-workspace.yaml",
+  "pubspec.yaml",
+  "rustfmt.toml",
+]
 
 [dependencies]
 

@@ -9,5 +9,5 @@
     "strictFunctionTypes": true,
     "skipLibCheck": true
   },
-  "include": ["build.ts", "dev.ts", "src/**/*.ts", "themes/**/*.ts"]
+  "include": ["build.ts", "build.dev.ts", "src/**/*.ts", "themes/**/*.ts"]
 }

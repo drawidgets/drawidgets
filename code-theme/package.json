@@ -8,7 +8,7 @@
     "vscode": "^1.95.0"
   },
   "scripts": {
-    "dev": "node --experimental-transform-types --watch dev.ts",
+    "dev": "node --experimental-transform-types --watch build.dev.ts",
     "build": "node --experimental-transform-types build.ts"
   },
   "devDependencies": {

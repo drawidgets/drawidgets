@@ -26,14 +26,24 @@ class InheritAPI<T> extends InheritData<T> {
   bool updateShouldNotify(covariant InheritData<T> oldWidget) => false;
 }
 
-/// Format the message of cannot find such data in context,
-/// including the corresponding type of [widget] and [data].
-String contextNoData(Type widget, Type data) {
-  return 'cannot find $widget or $InheritData<$data> in context';
-}
+extension FindContext on BuildContext {
+  T? maybeFind<T>() {
+    return dependOnInheritedWidgetOfExactType<InheritData<T>>()?.data;
+  }
 
-/// Format the message of cannot find such API in context,
-/// including the corresponding type of [widget] and [data].
-String contextNoAPI(Type widget, Type data) {
-  return 'cannot find $widget or $InheritAPI<$data> in context';
+  T? maybeFindAPI<T>() {
+    return dependOnInheritedWidgetOfExactType<InheritAPI<T>>()?.data;
+  }
+
+  T find<T>() {
+    final data = maybeFind<T>();
+    assert(data != null, 'cannot find $InheritData<$T> in context');
+    return data! as T;
+  }
+
+  T findAPI<T>() {
+    final data = maybeFindAPI<T>();
+    assert(data != null, 'cannot find $InheritAPI<$T> in context');
+    return data!;
+  }
 }

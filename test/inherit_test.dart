@@ -4,86 +4,42 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('inherit', () {
+    const message = 'message';
+
     testWidgets('inherit data', (t) async {
-      const message = ExampleData('message');
       final layout = Builder(
         builder: (context) {
-          return Center(
-            child: Text(Example.of(context).message),
-          );
+          final message = context.find<String>();
+          return Center(child: Text(message));
         },
       );
       await t.pumpWidget(
         EnsureTextEnvironment(
-          child: Example(
+          child: InheritData(
             data: message,
             child: layout,
           ),
         ),
       );
-      expect(find.text(message.message), findsOneWidget);
+      expect(find.text(message), findsOneWidget);
     });
 
     testWidgets('inherit API', (t) async {
-      const message = ExampleData('message');
       final layout = Builder(
         builder: (context) {
-          return Center(
-            child: Text(ExampleAPI.of(context).message),
-          );
+          final message = context.findAPI<String>();
+          return Center(child: Text(message));
         },
       );
       await t.pumpWidget(
         EnsureTextEnvironment(
-          child: ExampleAPI(
+          child: InheritAPI(
             data: message,
             child: layout,
           ),
         ),
       );
-      expect(find.text(message.message), findsOneWidget);
+      expect(find.text(message), findsOneWidget);
     });
   });
-}
-
-class Example extends InheritData<ExampleData> {
-  const Example({
-    super.key,
-    required super.data,
-    required super.child,
-  });
-
-  static ExampleData? maybeOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<Example>()?.data;
-  }
-
-  static ExampleData of(BuildContext context) {
-    final data = maybeOf(context);
-    assert(data != null, contextNoData(Example, ExampleData));
-    return data!;
-  }
-}
-
-class ExampleAPI extends InheritAPI<ExampleData> {
-  const ExampleAPI({
-    super.key,
-    required super.data,
-    required super.child,
-  });
-
-  static ExampleData? maybeOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<ExampleAPI>()?.data;
-  }
-
-  static ExampleData of(BuildContext context) {
-    final data = maybeOf(context);
-    assert(data != null, contextNoAPI(ExampleAPI, ExampleData));
-    return data!;
-  }
-}
-
-class ExampleData {
-  const ExampleData(this.message);
-
-  final String message;
 }

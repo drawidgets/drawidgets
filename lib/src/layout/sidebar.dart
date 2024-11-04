@@ -11,22 +11,12 @@ enum SidebarStatus {
   /// but the windows is resized that it's too narrow to display the sidebar,
   /// so it is hidden now, but once the window is width enough, it will show.
   narrow;
-
-  static SidebarStatus? maybeOf(BuildContext context) => context
-      .dependOnInheritedWidgetOfExactType<InheritData<SidebarStatus>>()
-      ?.data;
-
-  static SidebarStatus of(BuildContext context) {
-    final status = SidebarStatus.maybeOf(context);
-    assert(status != null, contextNoData(SidebarContainer, SidebarStatus));
-    return status!;
-  }
 }
 
 class SidebarContainer extends StatefulWidget {
   const SidebarContainer({
     super.key,
-    this.sidebarTheme = AreaThemeData.placeholder,
+    this.sidebarTheme = AreaTheme.placeholder,
     this.borderColor = Colors.brick,
     this.primary = true,
     this.sidebarWidth = 245,
@@ -37,7 +27,7 @@ class SidebarContainer extends StatefulWidget {
   })  : assert(sidebarWidth >= sidebarMinWidth),
         assert(sidebarWidth <= sidebarMaxWidth);
 
-  final AreaThemeData sidebarTheme;
+  final AreaTheme sidebarTheme;
   final Color borderColor;
 
   /// Whether the sidebar is on the start side

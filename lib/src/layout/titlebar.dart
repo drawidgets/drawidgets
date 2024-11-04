@@ -5,13 +5,13 @@ import 'package:flutter/widgets.dart';
 class TitlebarContainer extends StatelessWidget {
   const TitlebarContainer({
     super.key,
-    this.titlebarTheme = AreaThemeData.placeholder,
+    this.titlebarTheme = AreaTheme.placeholder,
     this.borderColor = Colors.brick,
     this.titlebarHeight = 46,
     required this.child,
   });
 
-  final AreaThemeData titlebarTheme;
+  final AreaTheme titlebarTheme;
   final Color borderColor;
   final double titlebarHeight;
   final Widget child;

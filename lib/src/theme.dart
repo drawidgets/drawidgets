@@ -1,7 +1,7 @@
 /// Custom theme templates: create your own theme without limitation of
 /// the templates from the `material` or `cupertino` library.
 ///
-/// You can `extends` the [ThemeDataBase] class to create your own theme data,
+/// You can `extends` the [ThemeBase] class to create your own theme data,
 /// and create a `Theme` class that extends the [ThemeBase] class to apply it.
 /// The [ThemeAdapt] widget will help you to adapt platform system theme mode,
 /// and you can also use the [animatedThemeAdapt] function to
@@ -21,8 +21,8 @@ import 'package:flutter/widgets.dart';
 
 /// Theme data of an area with only [foreground] and [background] colors.
 /// It also provides a [lerp] static method for animation.
-class AreaThemeData {
-  const AreaThemeData({
+class AreaTheme {
+  const AreaTheme({
     required this.foreground,
     required this.background,
   });
@@ -30,13 +30,13 @@ class AreaThemeData {
   final Color foreground;
   final Color background;
 
-  static const placeholder = AreaThemeData(
+  static const placeholder = AreaTheme(
     foreground: Colors.black,
     background: Colors.gray,
   );
 
-  static AreaThemeData lerp(AreaThemeData a, AreaThemeData b, double t) {
-    return AreaThemeData(
+  static AreaTheme lerp(AreaTheme a, AreaTheme b, double t) {
+    return AreaTheme(
       background: lerpColor(a.background, b.background, t),
       foreground: lerpColor(a.foreground, b.foreground, t),
     );
@@ -45,7 +45,7 @@ class AreaThemeData {
 
 Widget areaTheme({
   Key? key,
-  required AreaThemeData theme,
+  required AreaTheme theme,
   required Widget child,
 }) {
   return ColoredBox(
@@ -60,7 +60,7 @@ Widget areaTheme({
 
 Widget areaThemeSolid({
   Key? key,
-  required AreaThemeData theme,
+  required AreaTheme theme,
   required Widget child,
 }) {
   return ColoredBox(
@@ -73,14 +73,14 @@ Widget areaThemeSolid({
   );
 }
 
-class ThemeDataBase extends AreaThemeData {
-  const ThemeDataBase.light({
+class ThemeBase extends AreaTheme {
+  const ThemeBase.light({
     this.brightness = Brightness.light,
     super.foreground = Colors.ink,
     super.background = Colors.snow,
   });
 
-  const ThemeDataBase.dark({
+  const ThemeBase.dark({
     this.brightness = Brightness.dark,
     super.foreground = Colors.chalk,
     super.background = Colors.coal,
@@ -89,26 +89,19 @@ class ThemeDataBase extends AreaThemeData {
   final Brightness brightness;
 }
 
-class ThemeBase<T extends ThemeDataBase> extends StatelessWidget {
-  const ThemeBase({
-    super.key,
-    required this.theme,
-    required this.child,
-  });
-
-  final T theme;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return InheritData(
-      data: theme,
-      child: areaThemeSolid(
-        theme: theme,
-        child: child,
-      ),
-    );
-  }
+Widget theme<T extends ThemeBase>({
+  Key? key,
+  required T theme,
+  required Widget child,
+}) {
+  return InheritData(
+    key: key,
+    data: theme,
+    child: areaThemeSolid(
+      theme: theme,
+      child: child,
+    ),
+  );
 }
 
 enum ThemeMode {
@@ -117,7 +110,7 @@ enum ThemeMode {
   dark;
 }
 
-class ThemeAdapt<T extends ThemeDataBase> extends StatefulWidget {
+class ThemeAdapt<T extends ThemeBase> extends StatefulWidget {
   const ThemeAdapt({
     super.key,
     this.mode = ThemeMode.system,
@@ -129,13 +122,13 @@ class ThemeAdapt<T extends ThemeDataBase> extends StatefulWidget {
   final ThemeMode mode;
   final T dark;
   final T light;
-  final Widget Function(BuildContext context, T theme) builder;
+  final Widget Function(BuildContext context, T themeData) builder;
 
   @override
   State<ThemeAdapt<T>> createState() => _ThemeAdaptState();
 }
 
-class _ThemeAdaptState<T extends ThemeDataBase> extends State<ThemeAdapt<T>>
+class _ThemeAdaptState<T extends ThemeBase> extends State<ThemeAdapt<T>>
     with WidgetsBindingObserver {
   @override
   void initState() {
@@ -165,7 +158,7 @@ class _ThemeAdaptState<T extends ThemeDataBase> extends State<ThemeAdapt<T>>
   }
 }
 
-ThemeAdapt<T> animatedThemeAdapt<T extends ThemeDataBase>({
+ThemeAdapt<T> animatedThemeAdapt<T extends ThemeBase>({
   Key? key,
   Duration duration = const Duration(milliseconds: 325),
   Curve curve = Curves.easeInOut,
@@ -173,18 +166,18 @@ ThemeAdapt<T> animatedThemeAdapt<T extends ThemeDataBase>({
   required T Function(T, T, double) lerp,
   required T dark,
   required T light,
-  required Widget Function(BuildContext, T) builder,
+  required Widget Function(BuildContext context, T themeData) builder,
 }) {
   return ThemeAdapt<T>(
     key: key,
     dark: dark,
     light: light,
-    builder: (context, theme) {
+    builder: (context, themeData) {
       return AnimateData<T>(
         duration: duration,
         curve: curve,
         lerp: lerp,
-        data: theme,
+        data: themeData,
         builder: builder,
       );
     },

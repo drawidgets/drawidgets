@@ -43,46 +43,34 @@ class AreaThemeData {
   }
 }
 
-/// Apply the foreground and background according to the [theme].
-class AreaTheme extends StatelessWidget {
-  const AreaTheme({
-    super.key,
-    required this.theme,
-    required this.child,
-  });
-
-  final AreaThemeData theme;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ColoredBox(
-      color: theme.background,
-      child: Foreground(
-        color: theme.foreground,
-        child: child,
-      ),
-    );
-  }
+Widget areaTheme({
+  Key? key,
+  required AreaThemeData theme,
+  required Widget child,
+}) {
+  return ColoredBox(
+    key: key,
+    color: theme.background,
+    child: Foreground(
+      color: theme.foreground,
+      child: child,
+    ),
+  );
 }
 
-class AreaThemeSolid extends AreaTheme {
-  const AreaThemeSolid({
-    super.key,
-    required super.theme,
-    required super.child,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ColoredBox(
-      color: theme.background,
-      child: ForegroundSolid(
-        color: theme.foreground,
-        child: child,
-      ),
-    );
-  }
+Widget areaThemeSolid({
+  Key? key,
+  required AreaThemeData theme,
+  required Widget child,
+}) {
+  return ColoredBox(
+    key: key,
+    color: theme.background,
+    child: ForegroundSolid(
+      color: theme.foreground,
+      child: child,
+    ),
+  );
 }
 
 class ThemeDataBase extends AreaThemeData {
@@ -115,7 +103,7 @@ class ThemeBase<T extends ThemeDataBase> extends StatelessWidget {
   Widget build(BuildContext context) {
     return InheritData(
       data: theme,
-      child: AreaThemeSolid(
+      child: areaThemeSolid(
         theme: theme,
         child: child,
       ),

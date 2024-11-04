@@ -3,10 +3,8 @@ name = "drawidgets"
 description = "Drawidgets backend and command-line infrastructures."
 version = "0.1.0"
 edition = "2021"
-
 repository = "https://github.com/drawidgets/drawidgets"
 license = "MIT"
-license-file = "LICENSE"
 
 [dependencies]
 

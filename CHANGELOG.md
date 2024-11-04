@@ -1,23 +1,28 @@
-## 0.0.3
+## Rust-0.0.0
 
-- `flutter`: theme adapt template with animation.
-- `flutter`: optimize lerp and tween over flutter raw implementations.
-- `flutter`: apply functional programming in theme and inherit.
+- Initial release as placeholder on [crates.io](https://crates.io).
+- Prepare for compilation as C-ABI dynamic library.
 
-## 0.0.2
+## Flutter-0.0.3
 
-- `flutter`: template of themes and platform brightness adapt.
-- `flutter`: inherit and animation code reuse and optimization.
-- `flutter`: shared linter options (`package:drawidgets/lints.yaml`).
+- theme adapt template with animation.
+- optimize lerp and tween over flutter raw implementations.
+- apply functional programming in theme and inherit.
 
-## 0.0.1
+## Flutter-0.0.2
 
-- `flutter`: fix bug of `.pubignore` the `lib/src` folder.
+- template of themes and platform brightness adapt.
+- inherit and animation code reuse and optimization.
+- shared linter options (`package:drawidgets/lints.yaml`).
 
-## 0.0.0
+## Flutter-0.0.1
+
+- fix bug of `.pubignore` the `lib/src` folder.
+
+## Flutter-0.0.0
 
 - Flutter, Rust and Node PNPM monorepo packages manifest.
 - Format on save options for VSCode and Prettier PNPM scripts.
 - Dart CI script to auto generate `.pubignore` from `.gitignore`.
-- `flutter`: ensure text display environment.
+- ensure text display environment.
 - `license`: use the MIT License.

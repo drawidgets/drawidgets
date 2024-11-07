@@ -3,8 +3,8 @@ import {join} from "path"
 import {ensureFolder} from "./src/utils.ts"
 import type {DebugLaunchConfigurations, DebugLaunchTask} from "./src/vscode.ts"
 
-const from = "."
-const dist = "dist"
+export const from = "."
+export const dist = "dist"
 
 /**
  * Generate a VSCode launch.json file at the specified {@link dist} folder.
@@ -46,11 +46,13 @@ export function generateVSCodeLaunch(
   writeFileSync(join(vscodeFolder, "launch.json"), JSON.stringify(allContents))
 }
 
+/** Generate an empty `.vscodeignore` file to prevent unnecessary warnings. */
 export function generateVSCodeIgnore(dist: string) {
   const content = "# Placeholder.\n"
   writeFileSync(join(dist, ".vscodeignore"), content)
 }
 
+/** Compile the `package.json` file and remove unnecessary properties. */
 export function compileNodeManifest(from: string, dist: string) {
   const manifestFileName = "package.json"
   const content = readFileSync(join(from, manifestFileName)).toString()

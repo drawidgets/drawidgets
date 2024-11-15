@@ -69,6 +69,9 @@ export function compileNodeManifest(from: string, dist: string) {
 export function updateCompile(from: string, dist: string) {
   compileNodeManifest(from, dist)
   generateVSCodeIgnore(dist)
+
+  // Generate .vscode/launch.json inside output directory.
+  // Open such directory using vscode to launch the extension.
   generateVSCodeLaunch(dist, {extensionRoot: ".", launchFolder: "../.."})
 }
 
